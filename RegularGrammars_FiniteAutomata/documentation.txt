@@ -1,0 +1,17 @@
+REGULAR GRAMMAR:
+-> represented as 3 maps containing: terminals, non-terminals and productions.
+  terminals and non-terminals map have the structure rune->boolean
+  productions map: rune -> list of lists of runes i.e. each non-terminal is mapped to a list of combinations of terminals and non-terminals
+-> While reading a grammar, we assume S is the starting symbol
+-> When reading a grammar, only the productions are provided, terminals and non-terminals are then deduced by conforming to the assumption that
+  non-terminals are uppercase letters and terminals are lowercase.
+-> If the left hand side symbol in a production is not uppercase i.e. non-terminal, an error is thrown.
+-> After reading the grammar into memory, the regular grammar check is performed:
+    - on the left hand side we have only a terminal or a terminal followed by a non-terminal
+    - transitions in epsilon are only accepted from the Initial state
+    - if the initial state transitions into epsilon, it cannot appear on the right hand side
+
+FINITE AUTOMATON:
+-> represented as lists of strings for the states, alphabet and final states, single string for initial state and a list of transitions
+-> a transition is formed of two strings: from, to and a list of characters which represent the transition symbols.
+-> all the input is read line by line from the file and stored in-memory
